@@ -1,8 +1,7 @@
 services:
   raspotify:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/dlanileonardo/spotify:latest
+    pull_policy: always
     container_name: raspotify
     network_mode: host
     restart: unless-stopped
