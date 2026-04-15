@@ -102,4 +102,6 @@ docker compose up -d
 
 ## Licença
 
-Defina aqui a licença do projeto (recomendado adicionar um arquivo `LICENSE`).
+Este projeto é licenciado sob a licença MIT.
+
+Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
