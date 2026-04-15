@@ -1,0 +1,25 @@
+services:
+  raspotify:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: raspotify
+    network_mode: host
+    restart: unless-stopped
+    devices:
+      - /dev/snd:/dev/snd
+    security_opt:
+      - apparmor:unconfined
+    group_add:
+      - audio
+    environment:
+      - SPOTIFY_NAME=${SPOTIFY_NAME:-Raspotify}
+      - BACKEND_NAME=${BACKEND_NAME:-alsa}
+      - DEVICE_NAME=${DEVICE_NAME:-default}
+      - ALSA_SLAVE_PCM=${DEVICE_NAME:-default}
+      - ALSA_SOUND_LEVEL=100%
+    volumes:
+      - ./raspotify/cache:/var/cache/raspotify
+      - ./raspotify/lib:/var/lib/raspotify
+      - /var/run/dbus:/var/run/dbus
+      - /var/run/bluealsa:/var/run/bluealsa
