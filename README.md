@@ -6,7 +6,15 @@ Transforma qualquer host Linux com saída de áudio em um dispositivo **Spotify 
 
 A imagem está publicada em:
 
-`ghcr.io/dlanileonardo/spotify`
+`ghcr.io/dlanileonardo/spotify:main`
+
+Também são publicadas as tags `latest` e `sha-*`.
+
+Para usar referência imutável, utilize digest:
+
+```bash
+docker pull ghcr.io/dlanileonardo/spotify@sha256:<digest>
+```
 
 Pacote: https://github.com/dlanileonardo/spotify/pkgs/container/spotify
 

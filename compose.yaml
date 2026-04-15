@@ -1,6 +1,6 @@
 services:
   raspotify:
-    image: ghcr.io/dlanileonardo/spotify:latest
+    image: ghcr.io/dlanileonardo/spotify:main
     pull_policy: always
     container_name: raspotify
     network_mode: host
