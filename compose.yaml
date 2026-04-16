@@ -1,6 +1,9 @@
 services:
   raspotify:
     image: ghcr.io/dlanileonardo/spotify:main
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
     pull_policy: always
     container_name: raspotify
     network_mode: host
@@ -15,8 +18,11 @@ services:
       - SPOTIFY_NAME=${SPOTIFY_NAME:-Raspotify}
       - BACKEND_NAME=${BACKEND_NAME:-alsa}
       - DEVICE_NAME=${DEVICE_NAME:-default}
-      - ALSA_SLAVE_PCM=${DEVICE_NAME:-default}
-      - ALSA_SOUND_LEVEL=100%
+      - ALSA_SLAVE_PCM=${ALSA_SLAVE_PCM:-default}
+      - ALSA_SOUND_LEVEL=${ALSA_SOUND_LEVEL:-100%}
+      - VERBOSE=${VERBOSE:-false}
+      - EQUALIZATION=${EQUALIZATION:-}
+      - INITIAL_VOLUME=${INITIAL_VOLUME:-70}
     volumes:
       - ./raspotify/cache:/var/cache/raspotify
       - ./raspotify/lib:/var/lib/raspotify

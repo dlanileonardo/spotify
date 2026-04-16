@@ -76,6 +76,7 @@ docker compose up -d
 - `DEVICE_NAME`: device ALSA de saída (ex.: `default`, `equal`, `bluealsa:...`)
 - `ALSA_SLAVE_PCM`: device final usado no `asound.conf` (quando usar equalizador)
 - `ALSA_SOUND_LEVEL`: volume inicial (ex.: `100%`)
+- `INITIAL_VOLUME`: volume inicial do Spotify/librespot em percentual inteiro de `0` a `100` (padrão: `70`)
 - `VERBOSE`: `true` para logs verbosos do `librespot`
 - `EQUALIZATION`: preset (`flat`, `rock`, `bass`, etc.) ou curva manual
 

@@ -18,6 +18,7 @@ ENV ALSA_SLAVE_PCM 'plughw:0,0'
 ENV ALSA_SOUND_LEVEL '100%'
 ENV VERBOSE 'false'
 ENV EQUALIZATION ''
+ENV INITIAL_VOLUME 70
 
 COPY /asound.conf /
 COPY /equalizer.sh /

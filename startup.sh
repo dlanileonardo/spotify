@@ -13,6 +13,14 @@ DEVICE=""
 BACKEND=""
 VERB=""
 
+SPOTIFY_NAME="${SPOTIFY_NAME:-RaspotifySpeaker}"
+BACKEND_NAME="${BACKEND_NAME:-alsa}"
+DEVICE_NAME="${DEVICE_NAME:-default}"
+ALSA_SLAVE_PCM="${ALSA_SLAVE_PCM:-default}"
+ALSA_SOUND_LEVEL="${ALSA_SOUND_LEVEL:-100%}"
+VERBOSE="${VERBOSE:-false}"
+INITIAL_VOLUME="${INITIAL_VOLUME:-70}"
+
 if [ "$VERBOSE" == "true" ]; then
   VERB="-v"
 fi
@@ -58,4 +66,9 @@ fi
 set -e
 
 echo "Starting Raspotify..."
-/usr/bin/librespot $VERB --name "$SPOTIFY_NAME" $BACKEND $DEVICE --bitrate 320 --disable-audio-cache --enable-volume-normalisation
+/usr/bin/librespot $VERB --name "$SPOTIFY_NAME" $BACKEND $DEVICE \
+      --bitrate 320 \
+      --disable-audio-cache \
+      --enable-volume-normalisation \
+      --cache /var/cache/raspotify \
+      --initial-volume $INITIAL_VOLUME
